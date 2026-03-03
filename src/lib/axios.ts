@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://example.com';
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://example.com/api';
 
 export const apiClient = axios.create({
     baseURL: BASE_URL,
@@ -9,7 +9,7 @@ export const apiClient = axios.create({
         'Content-Type': 'application/json',
     },
     withCredentials: true,
-})
+});
 
 apiClient.interceptors.request.use(
     (config) => {
@@ -21,8 +21,8 @@ apiClient.interceptors.request.use(
     },
     (error) => {
         return Promise.reject(error);
-    }
-)
+    },
+);
 
 apiClient.interceptors.response.use(
     (response) => {
@@ -30,7 +30,7 @@ apiClient.interceptors.response.use(
     },
     (error) => {
         return Promise.reject(error);
-    }
-)
+    },
+);
 
-export default apiClient
+export default apiClient;
