@@ -1,25 +1,5 @@
 import apiClient from '@/lib/axios';
 
-export const getCalendarAchievements = async () => {
-    const res = await apiClient.get('/home/calendar/achievements');
-    return res;
-};
-
-export const getNotifications = async () => {
-    const res = await apiClient.get('/home/notifications');
-    return res;
-};
-
-export const getDailySummary = async () => {
-    const res = await apiClient.get('/home/daily/summary');
-    return res;
-};
-
-export const getDietsDetail = async (mealType: any) => {
-    const res = await apiClient.get(`/home/diets/${mealType}`);
-    return res;
-};
-
 export const getWaterData = async () => {
     const res = await apiClient.get('/home/water');
     return res;
