@@ -1,8 +1,4 @@
-import type {
-	DietSetItem,
-	DietSetRequestItem,
-	ValidationError,
-} from "./common";
+﻿import type { DietSetFood, DietSetFoodInput, FieldError } from "./common";
 
 // 프로필 페이지 관련 API 타입 정의
 
@@ -58,7 +54,7 @@ export type UpdateMyNutritionResponse = {
 };
 
 // 영양정보 수정
-export type UpdateMyNutritionError = ValidationError;
+export type UpdateMyNutritionError = FieldError;
 
 // 식단 세트 리스트 불러오기
 export type MyDietSetListResponse = MyDietSetListItem[];
@@ -67,7 +63,7 @@ export type MyDietSetListItem = {
 	setId: number;
 	setName: string;
 	totalKcal: number;
-	items: DietSetItem[];
+	items: DietSetFood[];
 };
 
 // 식단 세트 수정
@@ -77,7 +73,7 @@ export type UpdateMyDietSetPath = {
 
 export type UpdateMyDietSetRequest = {
 	setName: string;
-	items: DietSetRequestItem[];
+	items: DietSetFoodInput[];
 };
 
 export type UpdateMyDietSetResponse = {
@@ -86,4 +82,4 @@ export type UpdateMyDietSetResponse = {
 };
 
 // 식단 세트 수정
-export type UpdateMyDietSetError = ValidationError;
+export type UpdateMyDietSetError = FieldError;
