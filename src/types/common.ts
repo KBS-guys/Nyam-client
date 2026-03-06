@@ -1,20 +1,18 @@
-// 공용으로 사용되는 타입들 정의
-export type ServerSuccessResponse<T> = {
+﻿// 공용으로 사용하는 타입 정의
+export type ApiSuccess<T> = {
 	code: number;
 	message: string;
 	data: T;
 };
 
-export type ServerFailResponse<T> = {
+export type ApiFailure<E = FieldError[]> = {
 	code: number;
 	message: string;
 	data?: never;
-	errors?: T;
+	errors?: E;
 };
 
-export type ServerResponseType<T> =
-	| ServerSuccessResponse<T>
-	| ServerFailResponse<T>;
+export type ApiResponse<T, E = FieldError[]> = ApiSuccess<T> | ApiFailure<E>;
 
 export type MealType = "MORNING" | "LUNCH" | "DINNER" | "SNACK";
 
@@ -36,18 +34,18 @@ export type AnalysisPeriodType = "WEEKLY";
 
 export type AnalysisNutrientType = "CARBS" | "PROTEIN" | "FAT" | "ETC";
 
-export type ValidationError = {
+export type FieldError = {
 	field: string;
 	reason: string;
 };
 
-export type DietSetRequestItem = {
+export type DietSetFoodInput = {
 	foodId: number;
 	amount: number;
 	unit: string;
 };
 
-export type DietSetItem = {
+export type DietSetFood = {
 	foodId: number;
 	foodName: string;
 	amount: number;

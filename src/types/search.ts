@@ -1,8 +1,8 @@
 ﻿import type {
-	DietSetItem,
-	DietSetRequestItem,
+	DietSetFood,
+	DietSetFoodInput,
+	FieldError,
 	MealType,
-	ValidationError,
 } from "./common";
 
 // 검색 페이지 관련 API 타입 정의
@@ -61,7 +61,7 @@ export type DeleteFavoriteResponse = {
 // 식단 세트 등록하기
 export type CreateDietSetRequest = {
 	setName: string;
-	items: DietSetRequestItem[];
+	items: DietSetFoodInput[];
 };
 
 export type CreateDietSetResponse = {
@@ -79,7 +79,7 @@ export type DietSetResponse = {
 	setId: number;
 	setName: string;
 	totalKcal: number;
-	items: DietSetItem[];
+	items: DietSetFood[];
 };
 
 // 음식 검색
@@ -154,4 +154,4 @@ export type CreateCustomFoodResponse = {
 };
 
 // 음식 직접 등록하기
-export type CreateCustomFoodError = ValidationError;
+export type CreateCustomFoodError = FieldError;
