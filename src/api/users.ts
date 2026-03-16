@@ -19,3 +19,8 @@ export const patchUserNutrition = async (nutritionData: any) => {
     const res = await apiClient.patch('/users/me/nutrition', nutritionData);
     return res;
 };
+
+export const getAchievemetns = async () => {
+    const res = await apiClient.get('/achievemetns/calendar');
+    return res;
+};
