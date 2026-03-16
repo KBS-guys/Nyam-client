@@ -18,7 +18,7 @@ export type RecentSearchItem = {
 
 // 최근 검색 삭제
 export type DeleteRecentSearchPath = {
-	searchId: number;
+	keyword: string;
 };
 
 export type DeleteRecentSearchResponse = {
